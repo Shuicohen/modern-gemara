@@ -1,1 +1,36 @@
-FULL_HTML_HERE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ModernGemara</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #f8f6f2; }
+.card { background: white; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+button { background: #1e3a5f; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; margin: 0.25rem; cursor: pointer; }
+.output { background: #f0ebe3; padding: 1rem; border-radius: 8px; margin-top: 1rem; }
+</style>
+</head>
+<body>
+<h1>ModernGemara</h1>
+<p>Understand Torah & Gemara examples with modern situations.</p>
+<div class="card">
+<button onclick="show('ox')">Ox that gores</button>
+<button onclick="show('garment')">Two people holding a garment</button>
+<button onclick="show('pit')">Open pit</button>
+</div>
+<div id="out" class="output" style="display:none"></div>
+<script>
+const samples = {
+  ox: { o: 'If one man\'s ox gores another man\'s ox and it dies, they sell the live ox and divide the money, and the dead ox they also divide.', m: 'If one person\'s car rear-ends another person\'s car and totals it, and the first driver has no prior accidents on record, they sell the remaining value of the undamaged car and split the proceeds, and they also split the value of the totaled car.', p: 'Limited liability when the damaging thing was not previously known to be dangerous.' },
+  garment: { o: 'Two people are holding a garment. One says "I found it," and the other says "I found it." They divide it.', m: 'Two people are holding the same phone. One says "I found it," and the other says "I found it." They divide its value.', p: 'When both parties have an equal claim, the disputed item is split.' },
+  pit: { o: 'If a man opens a pit and does not cover it, and an ox falls into it, the owner of the pit shall pay.', m: 'If a person digs a trench in a sidewalk and does not cover it, and a car falls into it, the person who dug the trench shall pay.', p: 'Creating a hazard on shared ground makes you fully liable for the damage it causes.' }
+};
+function show(k) {
+  const s = samples[k];
+  document.getElementById('out').style.display = 'block';
+  document.getElementById('out').innerHTML = '<strong>Original:</strong><br>' + s.o + '<br><br><strong>Modernized:</strong><br>' + s.m + '<br><br><strong>Principle:</strong> ' + s.p;
+}
+</script>
+</body>
+</html>
